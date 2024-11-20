@@ -76,43 +76,32 @@ export const FlowChartContent = () => {
   }, []);
 
   return (
-    <div className='h-screen bg-gray-100 relative'>
+    <div className='h-screen bg-background relative'>
       <button
         onClick={addNode}
-        className='absolute top-4 left-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-500 z-50'
+        className='absolute top-4 left-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg hover:bg-primary/90 z-50'
       >
         Add Node
       </button>
       <ReactFlow
-        nodes={nodes.map((node) => ({
-          ...node,
-          style: {
-            border: selectedNode === node.id ? '2px solid #1976d2' : '1px solid #ccc',
-            borderRadius: '12px',
-            background: selectedNode === node.id ? '#e3f2fd' : '#ffffff',
-            padding: '10px',
-            fontWeight: '500',
-            boxShadow: '0px 3px 6px rgba(0,0,0,0.1)',
-          },
-        }))}
+        nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onNodeClick={onNodeClick}
         fitView
-        panOnScroll
         panOnDrag
         defaultZoom={1.5}
         nodeTypes={{ custom: CustomNode }}
       >
-        <Background variant={BackgroundVariant.Lines} gap={16} size={1} color='#ddd' />
+        <Background variant={BackgroundVariant.Lines} gap={16} size={1} color='var(--muted)' />
         <MiniMap
-          nodeColor={(node) => (selectedNode === node.id ? '#1976d2' : '#90caf9')}
+          nodeColor={(node) => (selectedNode === node.id ? 'var(--primary)' : 'var(--muted)')}
           style={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '6px',
-            boxShadow: '0px 3px 6px rgba(0,0,0,0.1)',
+            backgroundColor: 'var(--background)',
+            borderRadius: 'var(--radius)',
+            boxShadow: 'var(--shadow)',
           }}
         />
         <Controls style={{ bottom: 10, right: 10 }} />
