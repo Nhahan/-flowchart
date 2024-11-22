@@ -1,11 +1,11 @@
-import { FlowChartContent } from '@/features/flowchart/FlowChartContent.tsx';
-import { ReactFlowProvider } from 'react-flow-renderer';
+import { EdgifyProvider } from 'edgify';
+import FlowDiagram from '@/app/FlowDiagram.tsx';
 
 const App = () => {
   return (
-    <ReactFlowProvider>
-      <FlowChartContent />
-    </ReactFlowProvider>
+    <EdgifyProvider>
+      <FlowDiagram />
+    </EdgifyProvider>
   );
 };
 
