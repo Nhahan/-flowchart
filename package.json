@@ -9,9 +9,11 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview",
-    "add": "pnpm remove edgify && pnpm add ../edgify/edgify-0.1.0.tgz"
+    "add": "pnpm remove edgify && pnpm add ../edgify/edgify-0.1.0.tgz",
+    "restart": "pnpm run add && pnpm run add && pnpm run dev"
   },
   "dependencies": {
+    "@xyflow/react": "^12.3.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "edgify": "file:../edgify/edgify-0.1.0.tgz",
